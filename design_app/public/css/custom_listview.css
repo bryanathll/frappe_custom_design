@@ -1,0 +1,437 @@
+/* ============================================
+   MODERN LISTVIEW STYLING - NO DELAY VERSION
+   ============================================ */
+
+/* Main background */
+.frappe-list .list-row-head.fixed {
+    position: fixed;
+    top: 110px;
+    z-index: 100;
+    background: white;
+}
+
+.layout-main-section {
+    overflow: auto;
+    overflow-y: auto;
+}
+
+.list-row-head .level-right{
+    background-color: #f8fafc !important;
+}
+
+.list-row-head .level-left{
+    background-color: #f8fafc !important;
+}
+
+/* List container - dengan tinggi terbatas */
+.frappe-list,
+.frappe-list.modern-list-table {
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+    width: calc(100% - 40px) !important;
+    margin: 20px auto !important;
+    
+    /* KUNCI: Batasi tinggi dan buat scrollable */
+    max-height: calc(100vh - 210px) !important;  /* Sesuaikan 200px dengan kebutuhan */
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;  /* Hidden di parent */
+}
+
+/* Result area - yang akan di-scroll */
+.frappe-list .result,
+.frappe-list .result-list {
+    overflow-y: auto !important;  /* Scroll vertikal di sini */
+    flex: 1 !important;
+    min-height: 0 !important;  /* Penting untuk flex scroll */
+}
+
+/* List header tetap di atas (tidak ikut scroll) */
+.frappe-list .list-headers {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background: #f8fafc !important;  /* Penting agar tidak transparan */
+}
+/* Pagination tetap di bawah (tidak ikut scroll) */
+.frappe-list .list-paging-area {
+    flex-shrink: 0 !important;
+}
+
+/* List header - kolom headers */
+.list-headers {
+    background: #f8fafc !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding: 12px 20px !important;
+}
+
+.list-headers .list-header-subject {
+    font-weight: 600 !important;
+    color: #475569 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.list-headers .level-item {
+    color: #64748b !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+}
+
+.result .list-row-container:first-child{
+    background: #f8fafc !important;
+}
+
+/* List rows - TANPA TRANSITION */
+
+
+
+.list-row-container,
+.list-row-container.modern-row {
+    border-bottom: 1px solid #f1f5f9 !important;
+    background: white !important;
+    padding: 4px 20px !important;
+}
+
+.list-row-container:hover,
+.list-row-container.modern-row:hover {
+    background: #f8fafc !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+.list-row-container:active,
+.list-row-container.modern-row:active {
+    background: #f5f7f9 !important;
+}
+
+/* Selected row */
+.list-row-container.selected,
+.list-row-container.list-row--selected,
+.list-row-container.modern-row.selected,
+.list-row-container.modern-row.list-row--selected {
+    background: #eff6ff !important;
+    border-left: 3px solid #3b82f6 !important;
+}
+
+/* List row content */
+.list-row {
+    padding:  0 !important;
+}
+
+.list-row .level-left {
+    align-items: center !important;
+}
+
+/* Checkbox styling - TANPA TRANSITION */
+.list-row-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
+
+.list-row-checkbox:hover {
+    border-color: #3b82f6 !important;
+}
+
+.list-row-checkbox:checked {
+    background: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Like/Favorite icon - TANPA TRANSITION */
+.like-action {
+    color: #94a3b8 !important;
+}
+
+.like-action:hover {
+    color: #ef4444 !important;
+}
+
+.like-action.liked {
+    color: #ef4444 !important;
+}
+
+/* Subject/Title column */
+.list-subject {
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    font-size: 14px !important;
+}
+
+.list-subject:hover {
+    color: #3b82f6 !important;
+}
+
+/* Other columns */
+.level-item {
+    color: #475569 !important;
+    font-size: 13px !important;
+}
+
+/* Status indicators/badges */
+.indicator {
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+}
+
+.indicator.blue,
+.indicator-pill.blue {
+    background: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+.indicator.green,
+.indicator-pill.green {
+    background: #dcfce7 !important;
+    color: #166534 !important;
+}
+
+.indicator.orange,
+.indicator-pill.orange {
+    background: #fed7aa !important;
+    color: #c2410c !important;
+}
+
+.indicator.red,
+.indicator-pill.red {
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.indicator.grey,
+.indicator.gray,
+.indicator-pill.grey,
+.indicator-pill.gray {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+.indicator.yellow,
+.indicator-pill.yellow {
+    background: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+/* Action buttons in rows - TANPA TRANSITION */
+.btn-secondary,
+.btn-default {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+}
+
+.btn-secondary:hover,
+.btn-default:hover {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Primary button - TANPA TRANSITION */
+.btn-primary {
+    background: #3b82f6 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+.btn-primary:hover {
+    background: #2563eb !important;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* List footer - pagination */
+.list-paging-area {
+    background: white !important;
+    border-top: 2px solid #f1f5f9 !important;
+    padding: 16px 20px !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+.list-paging-area .btn-group {
+    margin: 0 !important;
+}
+
+/* Count indicator */
+.list-count {
+    color: #64748b !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+/* Empty state */
+.no-result {
+    padding: 60px 20px !important;
+    text-align: center !important;
+    color: #94a3b8 !important;
+}
+
+.no-result .msg-box {
+    background: #f8fafc !important;
+    border: 2px dashed #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 40px !important;
+}
+
+/* Filter area */
+.filter-area {
+    background: white !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    margin: 0 20px 16px 20px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.filter-pill {
+    background: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+}
+
+.standard-filter-section .form-group {
+    margin-bottom: 0 !important;
+}
+
+/* Dropdown/Select styling - TANPA TRANSITION */
+.form-control,
+.input-with-feedback {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    background: white !important;
+    color: #1e293b !important;
+    font-size: 13px !important;
+}
+
+.form-control:focus,
+.input-with-feedback:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Tags */
+.tag-pill {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+    border-radius: 4px !important;
+    padding: 3px 8px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+/* Comments count */
+.comment-count {
+    color: #94a3b8 !important;
+    font-size: 12px !important;
+}
+
+/* Attachments icon */
+.attachment-icon {
+    color: #94a3b8 !important;
+}
+
+/* Avatar in list */
+.avatar {
+    border-radius: 50% !important;
+    border: 2px solid #e2e8f0 !important;
+}
+
+/* Page header */
+.page-head {
+    padding: 10px !important;
+}
+
+.page-title {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+
+.page-head-content {
+    background: transparent !important;
+}
+
+/* ============================================
+   HAPUS SEMUA ANIMASI DAN TRANSITIONS
+   ============================================ */
+
+/* Override semua transition dan animation */
+.list-row-container,
+.list-row-container *,
+.list-row-container.modern-row,
+.list-row-container.modern-row *,
+.btn,
+.btn *,
+.form-control,
+.input-with-feedback,
+input,
+select,
+.like-action,
+.list-subject {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Pastikan tidak ada keyframe animation yang dijalankan */
+@keyframes fadeIn {
+    from { opacity: 1; transform: none; }
+    to { opacity: 1; transform: none; }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .frappe-list,
+    .frappe-list.modern-list-table {
+        width: calc(100% - 20px) !important;  /* 10px kiri + 10px kanan */
+        margin: 4px 10px 10px 10px !important;  /* 10px semua sisi */
+    }
+
+    .list-row .level-left{
+        padding: 0 !important;
+    } 
+    
+    .list-row-container,
+    .list-row-container.modern-row {
+        padding: 4px 12px !important;
+    }
+    
+    .list-headers {
+        padding: 12px !important;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .frappe-list,
+    .frappe-list.modern-list-table {
+        background: white !important;
+        box-shadow: none !important;
+    }
+    
+    .list-row-container,
+    .list-row-container.modern-row {
+        break-inside: avoid !important;
+        box-shadow: none !important;
+    }
+}

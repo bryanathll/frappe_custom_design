@@ -1,0 +1,149 @@
+<!-- Custom Card Template for List View -->
+<script type="text/html" id="custom-card-template">
+    <div class="custom-card" data-name="{%= data.name %}" data-idx="{%= data.idx %}">
+        <div class="card-header">
+            <input class="list-row-checkbox" type="checkbox" data-name="{%= data.name %}">
+            <span class="card-title">{%= data.title || data.name %}</span>
+            {% if (data.__islocal) { %}
+                <span class="indicator orange">{%= __("Local") %}</span>
+            {% } %}
+            {% if (data._assign_list && data._assign_list.length) { %}
+                <span class="assigned-to" title="{%= __("Assigned to: ") + data._assign_list.join(', ') %}">
+                    <i class="fa fa-user"></i> {%= data._assign_list.length %}
+                </span>
+            {% } %}
+        </div>
+        
+        <div class="card-body">
+            <!-- Dynamic fields will be inserted here -->
+            <div class="card-fields-container">
+                {%= data.fields_html || "" %}
+            </div>
+            
+            <!-- Comments/Activity Preview -->
+            {% if (data._comments_count) { %}
+                <div class="card-comments">
+                    <i class="fa fa-comment"></i>
+                    <span>{%= data._comments_count %}</span>
+                </div>
+            {% } %}
+            
+            <!-- Tags -->
+            {% if (data._user_tags) { %}
+                <div class="card-tags">
+                    {% data._user_tags.split(',').forEach(function(tag) { %}
+                        <span class="tag">{%= tag.trim() %}</span>
+                    {% }); %}
+                </div>
+            {% } %}
+        </div>
+        
+        <div class="card-footer">
+            <div class="card-meta">
+                <!-- Modified Date -->
+                {% if (data.modified) { %}
+                    <div class="meta-item" title="{%= __("Last Updated") %}">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="relative-time" data-time="{%= data.modified %}"></span>
+                    </div>
+                {% } %}
+                
+                <!-- Owner -->
+                {% if (data.owner) { %}
+                    <div class="meta-item" title="{%= __("Created by") %}">
+                        <i class="fa fa-user"></i>
+                        <span>{%= frappe.user.full_name(data.owner) %}</span>
+                    </div>
+                {% } %}
+            </div>
+            
+            <div class="card-status">
+                {% if (data.status) { %}
+                    <span class="indicator-pill {%= data.status.toLowerCase().replace(' ', '-') %}">
+                        {%= data.status %}
+                    </span>
+                {% } %}
+            </div>
+            
+            <div class="card-actions">
+                <button class="btn btn-xs btn-default action-btn" data-action="edit" data-name="{%= data.name %}">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-xs btn-default action-btn" data-action="delete" data-name="{%= data.name %}">
+                    <i class="fa fa-trash"></i>
+                </button>
+                <!-- More actions dropdown -->
+                <div class="dropdown more-actions">
+                    <button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" class="dropdown-item" data-action="view" data-name="{%= data.name %}">
+                                <i class="fa fa-eye"></i> {%= __("View") %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item" data-action="share" data-name="{%= data.name %}">
+                                <i class="fa fa-share"></i> {%= __("Share") %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item" data-action="duplicate" data-name="{%= data.name %}">
+                                <i class="fa fa-copy"></i> {%= __("Duplicate") %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Selection overlay -->
+        <div class="selection-overlay"></div>
+    </div>
+</script>
+
+<!-- Empty State Template -->
+<script type="text/html" id="custom-card-empty">
+    <div class="empty-state">
+        <div class="empty-state-icon">
+            <i class="fa fa-inbox"></i>
+        </div>
+        <div class="empty-state-text">
+            <h4>{%= __("No records found") %}</h4>
+            <p>{%= __("Try changing your filters or create a new record") %}</p>
+        </div>
+        <div class="empty-state-actions">
+            <button class="btn btn-primary btn-new">
+                <i class="fa fa-plus"></i> {%= __("New {0}", [doctype]) %}
+            </button>
+            <button class="btn btn-default btn-clear-filters">
+                <i class="fa fa-filter"></i> {%= __("Clear Filters") %}
+            </button>
+        </div>
+    </div>
+</script>
+
+<!-- Loading Template -->
+<script type="text/html" id="custom-card-loading">
+    <div class="loading-state">
+        <div class="loading-cards">
+            {% for (var i = 0; i < 6; i++) { %}
+                <div class="loading-card">
+                    <div class="loading-header"></div>
+                    <div class="loading-body">
+                        <div class="loading-line short"></div>
+                        <div class="loading-line medium"></div>
+                        <div class="loading-line long"></div>
+                    </div>
+                    <div class="loading-footer"></div>
+                </div>
+            {% } %}
+        </div>
+    </div>
+</script>
+
+<!-- Optional HTML Template -->
+<script type="text/html" id="custom-card-template">
+    <!-- Template akan di-generate oleh JavaScript -->
+</script>

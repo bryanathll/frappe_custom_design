@@ -1,0 +1,54 @@
+/* ========================================
+   PAGE HEAD STYLES
+   ======================================== */
+
+/* .page-head {
+    z-index: 1;
+    margin-bottom: 0;
+} */
+
+/* .page-head .page-head-content {
+    height: fit-content !important;
+} */
+
+/* .page-head.flex.design-page-head { */
+    /* background: #fff; */
+    /* margin-top: 30px;
+    padding-top: 20px;
+    position: static !important;
+}
+
+.page-head.drop-shadow {
+    box-shadow: none !important;
+} */
+
+/* ========================================
+   PRELOADER (Loading Indicator)
+   ======================================== */
+
+/* .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgb(255 255 255 / 50%);
+    z-index: 9999;
+}
+
+body[data-ajax-state="triggered"] .preloader {
+    display: block;
+}
+
+.status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-image: url(../images/loading.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+} */
